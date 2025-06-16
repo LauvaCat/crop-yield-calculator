@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Crop Yield Calculator</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Tahoma, Verdana, sans-serif;
+    background: #d5f0c0;
+    color: #2e7d32;
+    font-size: 18px;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  h1, h2 {
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  form {
+    background: rgba(255 255 255 / 0.9);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    display: grid;
+    grid-gap: 20px;
+  }
+
+  input[type="text"],
+  select {
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .radio-group label {
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    cursor: pointer;
+  }
+
+  button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #207022;
+  }
+
+  .result {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #1a4d1a;
+    text-align: center;
+  }
+
+  @keyframes up1 {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+
+  @keyframes up2 {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+.up3 {
+  animation: up1 1s ease forwards;
+}
+
+.up4 {
+  animation: up2 1s ease forwards;
+}
+</style>
+</head>
+<body>
+
+<h1 class="up3">Crop Yield Calculator</h1>
+
+<form method="post" class="up4">
+  <label for="field_size"><strong>Please Enter Field Size</strong></label>
+  <input id="field_size" name="Field_Size" type="text" placeholder="Field Size" required />
+
+  <div class="radio-group"> 
+    <div>
+      <input type="radio" id="acres" name="units" value="acres" required />
+      <label for="acres">Acres</label>
+    </div>
+    <div>
+      <input type="radio" id="hectares" name="units" value="hectares" />
+      <label for="hectares">Hectares</label>
+    </div>
+  </div>
+
+  <label for="crop"><strong>Select a Crop</strong></label>
+  <select id="crop" name="crop" required>
+    <option value="corn">Corn</option>
+    <option value="wheat">Wheat</option>
+    <option value="potatoes">Potatoes</option>
+  </select>
+
+  <button type="submit">Calculate</button>
+</form>
+
+
+  <div class="result">
+    Estimated Yield for {{field_size}} {{unit}} of {{crop}} is: <strong>{{result}}</strong> tons
+  </div>
+
+
+</body>
+</html>
