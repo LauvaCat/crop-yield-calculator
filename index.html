@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!--title-->
 <title>Crop Yield Calculator</title>
 <style>
   html, body {
@@ -128,7 +130,7 @@
 <body>
 
 <h1 class="up3">Crop Yield Calculator</h1>
-
+<!--asks users for their farming field size, then acres or hectares-->
 <form method="post" class="up4">
   <label for="field_size"><strong>Please Enter Field Size</strong></label>
   <input id="field_size" name="Field_Size" type="text" placeholder="Field Size" required />
@@ -143,7 +145,7 @@
       <label for="hectares">Hectares</label>
     </div>
   </div>
-
+<!--dropdown menu for options of crops to chose from-->
   <label for="crop"><strong>Select a Crop</strong></label>
   <select id="crop" name="crop" required>
     <option value="corn">Corn</option>
@@ -155,6 +157,8 @@
 </form>
 
 
+
+<!--displays the result coming from app.py after user presses submit with inputted data-->
   <div class="result">
     Estimated Yield for {{field_size}} {{unit}} of {{crop}} is: <strong>{{result}}</strong> tons
   </div>
