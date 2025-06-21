@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 
-<!-- https://youtu.be/1eHC4RwAWjc <- link for new live example | other was deleted -->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!--title-->
+  <!--title for the browser tab-->
 <title>Crop Yield Calculator</title>
+  <!-- basic stylecss to style the page to make it pretty -->
 <style>
+  /* style for the entire page */
   html, body {
     height: 100%;
     margin: 0;
@@ -26,7 +27,7 @@
     padding: 40px 20px;
     box-sizing: border-box;
   }
-
+/* header styles */
   h1, h2 {
     margin: 0 0 20px 0;
     text-align: center;
@@ -40,16 +41,16 @@
     font-size: 1.25rem;
     margin-bottom: 10px;
   }
-
+/* form container */
   form {
     background: rgba(255 255 255 / 0.9);
     padding: 30px 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* soft shadow */
     width: 100%;
     max-width: 400px;
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 20px; /* element spacing */
   }
 
   input[type="text"],
@@ -60,7 +61,7 @@
     border-radius: 4px;
     text-align: center;
   }
-
+/* radio group layout */
   .radio-group {
     display: flex;
     justify-content: center;
@@ -75,7 +76,7 @@
   input[type="radio"] {
     cursor: pointer;
   }
-
+/* submit button styling */
   button {
     background-color: #4caf50;
     border: none;
@@ -98,8 +99,8 @@
     color: #1a4d1a;
     text-align: center;
   }
-
-  @keyframes up1 {
+/* keyframes are used for animations for the titles and the boxes */
+  @keyframes up1 { /* title animates from up to its position */
     from {
         opacity: 0;
         transform: translateY(-30px);
@@ -110,7 +111,7 @@
     }
   }
 
-  @keyframes up2 {
+  @keyframes up2 { /* goes down to original position */
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -133,28 +134,31 @@
 
 <h1 class="up3">Crop Yield Calculator</h1>
 <!--asks users for their farming field size, then acres or hectares-->
-<form method="post" class="up4">
+  <!-- uses method post to send data to backend /app.py -->
+<form method="post" class="up4"> 
   <label for="field_size"><strong>Please Enter Field Size</strong></label>
   <input id="field_size" name="Field_Size" type="text" placeholder="Field Size" required />
-
+<!-- radio group is used to display the options to select acres or hectares -->
   <div class="radio-group"> 
     <div>
+      <!-- makes it a required option so that they must select an option, preventing them from pressing submit -->
       <input type="radio" id="acres" name="units" value="acres" required />
       <label for="acres">Acres</label>
     </div>
     <div>
-      <input type="radio" id="hectares" name="units" value="hectares" />
+      <input type="radio" id="hectares" name="units" value="hectares" required />
       <label for="hectares">Hectares</label>
     </div>
   </div>
 <!--dropdown menu for options of crops to chose from-->
   <label for="crop"><strong>Select a Crop</strong></label>
   <select id="crop" name="crop" required>
+    <!-- different values contribute to different amount of tons per acre/ hectare -->
     <option value="corn">Corn</option>
     <option value="wheat">Wheat</option>
     <option value="potatoes">Potatoes</option>
   </select>
-
+<!-- calculate button to send data to app.py so it can display underneath -->
   <button type="submit">Calculate</button>
 </form>
 
